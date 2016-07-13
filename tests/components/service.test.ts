@@ -1,15 +1,19 @@
 import {FooBarService, BarFooService, BarBarService} from '../sandbox/components/service';
-import module from '../sandbox';
+import app from "../sandbox/index";
+import 'angular-mocks';
+
 const {mock} = angular;
+
+var expect = chai.expect;
 
 describe('@service', () => {
 
 	var foobar, barfoo, barbar;
-	beforeEach(mock.module(module));
+	beforeEach(mock.module(app));
 	beforeEach(mock.inject([
-		FooBarService.$name,
-		BarFooService.$name,
-		BarBarService.$name,
+		(FooBarService as any).$name,
+		(BarFooService as any).$name,
+		(BarBarService as any).$name,
 		(FooBarService, BarFooService, BarBarService) => {
 			foobar = FooBarService;
 			barfoo = BarFooService;
@@ -18,17 +22,17 @@ describe('@service', () => {
 	]));
 
 	it('should have a different name', () => {
-		expect(BarFooService.$name).to.equal('renamed.service.barfoo');
+		expect((BarFooService as any).$name).to.equal('renamed.service.barfoo');
 		expect(barfoo).to.not.be.undefined;
-	})
+	});
 
 	it('should keep the context', () => {
 		expect(foobar.get()).to.equal(foobar);
 		expect(barfoo.get()).to.equal(barfoo);
-	})
+	});
 
 	it('should inject an other service', () => {
 		expect(barbar.barfoo).to.equal(barfoo);
-	})
+	});
 
-})
+});

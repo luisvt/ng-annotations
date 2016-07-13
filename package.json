@@ -7,7 +7,8 @@
     "build": "webpack --progress -c --config webpack/webpack.dist.config.js",
     "dev": "webpack-dev-server --port 8080 --content-base example/webpack --hot --progress -c --config webpack/webpack.dev.config.js",
     "es6": "grunt es6",
-    "unit": "karma start"
+    "unit": "karma start",
+    "postinstall": "typings i"
   },
   "keywords": [
     "angular",
@@ -40,9 +41,12 @@
     "jit-grunt": "^0.9.1",
     "karma": "^0.13.8",
     "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-requirejs": "^1.0.0",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.2.5",
     "node-sass": "^3.2.0",
@@ -54,6 +58,7 @@
     "webpack": "^1.10.5"
   },
   "dependencies": {
-    "angular": "^1.5.7"
+    "angular": "^1.5.7",
+    "requirejs": "^2.2.0"
   }
 }

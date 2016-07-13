@@ -4,7 +4,7 @@
 # node-waf configuration
 .lock-wscript
 
-src
+tests
 example
 
 # Dependency directory
@@ -15,7 +15,6 @@ webpack
 # Bower
 bower_components
 
-gruntfile.js
 .gitignore
 .gitattributes
 

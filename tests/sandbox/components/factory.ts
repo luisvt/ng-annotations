@@ -34,9 +34,7 @@ export class BarFooFactory {
 @inject(BarFooFactory)
 export class BarBarFactory {
 
-	constructor(barfoo) {
-		this.barfoo = barfoo;
-	}
+	constructor(private barfoo) {}
 
 	getContext() {
 		return this;
@@ -52,4 +50,4 @@ export class BarBarFactory {
 	FooBarFactory,
 	BarFooFactory,
 	BarBarFactory
-].forEach(component => component.autodeclare(app));
+].forEach(component => (component as any).autodeclare(app));

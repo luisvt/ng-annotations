@@ -13,13 +13,17 @@
     "wrapper"
   ],
   "ignore": [
-	"src",
-	"node_modules",
-	"webpack",
-	"bower_components",
-	"gruntfile.js",
-	".gitignore",
-	".gitattributes"
+    "src",
+    "node_modules",
+    "webpack",
+    "bower_components",
+    "gruntfile.js",
+    ".gitignore",
+    ".gitattributes"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "requirejs": "^2.2.0"
+  }
 }

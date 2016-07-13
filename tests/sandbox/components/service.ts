@@ -23,9 +23,7 @@ export class BarFooService extends FooBarService {}
 @inject(BarFooService)
 export class BarBarService {
 
-	constructor(barfoo) {
-		this.barfoo = barfoo;
-	}
+	constructor(private barfoo) {}
 
 	getInjection() {
 		return this.barfoo;
@@ -36,4 +34,4 @@ export class BarBarService {
 	FooBarService,
 	BarFooService,
 	BarBarService
-].forEach(component => component.autodeclare(app));
+].forEach(component => (component as any).autodeclare(app));
